@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Levantamento de Requisitos | Sistema de Condomínio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background: radial-gradient(circle at top, #0f172a, #020617);
+    }
+  </style>
+</head>
+
+<body class="text-slate-200 min-h-screen flex justify-center px-4 py-10">
+
+  <form 
+    action="POST_AQUI_SUA_URL" 
+    method="POST"
+    class="w-full max-w-4xl bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl shadow-2xl p-8 space-y-10"
+  >
+
+    <!-- Header -->
+    <header class="space-y-3 text-center">
+      <h1 class="text-3xl font-bold text-cyan-400">
+        Levantamento de Requisitos
+      </h1>
+      <p class="text-slate-400 text-sm">
+        Sistema Interno de Gestão de Condomínio
+      </p>
+    </header>
+
+    <!-- BLOCO: EQUIPE -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-semibold text-cyan-300">
+        Estrutura de Equipe e Acessos
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <input name="zeladoria_qtd" placeholder="Qtd. usuários - Zeladoria" class="input" />
+        <input name="administrativo_qtd" placeholder="Qtd. usuários - Administrativo" class="input" />
+        <input name="financeiro_qtd" placeholder="Qtd. usuários - Financeiro" class="input" />
+        <input name="patrimonial_qtd" placeholder="Qtd. usuários - Patrimonial" class="input" />
+      </div>
+
+      <textarea name="acumulo_funcoes" placeholder="Algum setor acumula funções? Qual?"
+        class="textarea"></textarea>
+    </section>
+
+    <!-- BLOCO: ZELADORIA -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-semibold text-cyan-300">
+        Rotina da Zeladoria (Manutenção)
+      </h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <label class="checkbox"><input type="checkbox" name="manutencao[]" value="Bombas"> Bombas</label>
+        <label class="checkbox"><input type="checkbox" name="manutencao[]" value="Elevadores"> Elevadores</label>
+        <label class="checkbox"><input type="checkbox" name="manutencao[]" value="Iluminacao"> Iluminação</label>
+        <label class="checkbox"><input type="checkbox" name="manutencao[]" value="Portoes"> Portões</label>
+        <label class="checkbox"><input type="checkbox" name="manutencao[]" value="Gerador"> Gerador</label>
+      </div>
+
+      <textarea name="checklists" placeholder="Existem checklists hoje? Se sim, quais?"
+        class="textarea"></textarea>
+
+      <textarea name="controle_falhas" placeholder="Como é feito o controle de falhas atualmente?"
+        class="textarea"></textarea>
+
+      <textarea name="aviso_falhas" placeholder="Quando algo não é feito, quem é avisado?"
+        class="textarea"></textarea>
+    </section>
+
+    <!-- BLOCO: ESTOQUE -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-semibold text-cyan-300">
+        Controle de Estoque e Insumos
+      </h2>
+
+      <textarea name="estoque" placeholder="Existem materiais em estoque? Quais?"
+        class="textarea"></textarea>
+
+      <textarea name="falta_material" placeholder="Já houve falta de material em emergência?"
+        class="textarea"></textarea>
+
+      <textarea name="reposicao" placeholder="Quem controla reposição hoje?"
+        class="textarea"></textarea>
+
+      <select name="alerta_estoque" class="select">
+        <option value="">Deseja alerta automático de estoque mínimo?</option>
+        <option>Sim</option>
+        <option>Não</option>
+      </select>
+    </section>
+
+    <!-- BLOCO: PATRIMÔNIO -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-semibold text-cyan-300">
+        Controle Patrimonial
+      </h2>
+
+      <select name="inventario" class="select">
+        <option value="">Existe inventário patrimonial?</option>
+        <option>Sim</option>
+        <option>Não</option>
+      </select>
+
+      <select name="nota_fiscal" class="select">
+        <option value="">Os bens possuem nota fiscal armazenada?</option>
+        <option>Sim</option>
+        <option>Não</option>
+      </select>
+    </section>
+
+    <!-- BLOCO: FINANCEIRO -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-semibold text-cyan-300">
+        Financeiro — Controle e Visão
+      </h2>
+
+      <select name="controle_financeiro" class="select">
+        <option value="">Controle financeiro é feito onde?</option>
+        <option>Planilha</option>
+        <option>Sistema Externo</option>
+        <option>Papel</option>
+      </select>
+
+      <textarea name="problemas_financeiros" placeholder="Principais problemas financeiros hoje"
+        class="textarea"></textarea>
+    </section>
+
+    <!-- BLOCO: COMUNICAÇÃO -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-semibold text-cyan-300">
+        Comunicação e Fluxo Interno
+      </h2>
+
+      <textarea name="comunicacao" placeholder="Como os funcionários se comunicam hoje?"
+        class="textarea"></textarea>
+
+      <textarea name="historico_comunicacao" placeholder="Existe histórico dessas comunicações?"
+        class="textarea"></textarea>
+    </section>
+
+    <!-- BLOCO: ALERTAS -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-semibold text-cyan-300">
+        Alertas, Aprovações e Automatizações
+      </h2>
+
+      <label class="checkbox"><input type="checkbox" name="aprovacoes[]" value="Compras"> Aprovação de compras</label>
+      <label class="checkbox"><input type="checkbox" name="aprovacoes[]" value="Manutencoes"> Manutenções críticas</label>
+
+      <textarea name="alertas_criticos" placeholder="O que NÃO pode passar sem aviso?"
+        class="textarea"></textarea>
+    </section>
+
+    <!-- BLOCO: DOR -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-semibold text-cyan-300">
+        Problemas e Expectativas
+      </h2>
+
+      <textarea name="maior_problema" placeholder="Qual o MAIOR problema hoje no condomínio?"
+        class="textarea"></textarea>
+
+      <textarea name="retrabalho" placeholder="O que mais gera retrabalho?"
+        class="textarea"></textarea>
+
+      <textarea name="solucao_ideal" placeholder="Se o sistema resolvesse UMA coisa, qual seria?"
+        class="textarea"></textarea>
+    </section>
+
+    <!-- BOTÃO -->
+    <button
+      type="submit"
+      class="w-full py-3 bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold rounded-lg transition">
+      Enviar Informações
+    </button>
+
+  </form>
+
+  <!-- COMPONENTES -->
+  <style>
+    .input {
+      @apply bg-slate-800 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400;
+    }
+    .textarea {
+      @apply w-full bg-slate-800 border border-slate-600 rounded-lg px-4 py-3 min-h-[100px] focus:outline-none focus:ring-2 focus:ring-cyan-400;
+    }
+    .select {
+      @apply w-full bg-slate-800 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400;
+    }
+    .checkbox {
+      @apply flex items-center gap-2 text-slate-300;
+    }
+  </style>
+
+</body>
+</html>
