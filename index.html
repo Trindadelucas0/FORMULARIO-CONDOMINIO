@@ -111,62 +111,68 @@
       box-shadow: 0 8px 32px 0 rgba(6, 182, 212, 0.1);
     }
 
+    /* Labels premium */
+    .label-premium {
+      display: block;
+      color: #e2e8f0;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+
     /* Inputs premium */
     .input-premium {
-      background: rgba(30, 41, 59, 0.6);
-      border: 1.5px solid rgba(148, 163, 184, 0.2);
+      background: rgba(30, 41, 59, 0.7);
+      border: 1.5px solid rgba(148, 163, 184, 0.3);
       border-radius: 12px;
       padding: 14px 18px;
-      color: #f1f5f9;
+      color: #ffffff;
       font-size: 15px;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       backdrop-filter: blur(10px);
-    }
-
-    .input-premium::placeholder {
-      color: rgba(148, 163, 184, 0.5);
+      width: 100%;
     }
 
     .input-premium:focus {
       outline: none;
       border-color: #06b6d4;
-      background: rgba(30, 41, 59, 0.8);
+      background: rgba(30, 41, 59, 0.9);
       box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1), 0 0 20px rgba(6, 182, 212, 0.2);
       transform: translateY(-1px);
+      color: #ffffff;
     }
 
     .textarea-premium {
-      background: rgba(30, 41, 59, 0.6);
-      border: 1.5px solid rgba(148, 163, 184, 0.2);
+      background: rgba(30, 41, 59, 0.7);
+      border: 1.5px solid rgba(148, 163, 184, 0.3);
       border-radius: 12px;
       padding: 14px 18px;
-      color: #f1f5f9;
+      color: #ffffff;
       font-size: 15px;
       min-height: 120px;
       resize: vertical;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       backdrop-filter: blur(10px);
       font-family: inherit;
-    }
-
-    .textarea-premium::placeholder {
-      color: rgba(148, 163, 184, 0.5);
+      width: 100%;
     }
 
     .textarea-premium:focus {
       outline: none;
       border-color: #06b6d4;
-      background: rgba(30, 41, 59, 0.8);
+      background: rgba(30, 41, 59, 0.9);
       box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1), 0 0 20px rgba(6, 182, 212, 0.2);
       transform: translateY(-1px);
+      color: #ffffff;
     }
 
     .select-premium {
-      background: rgba(30, 41, 59, 0.6);
-      border: 1.5px solid rgba(148, 163, 184, 0.2);
+      background: rgba(30, 41, 59, 0.7);
+      border: 1.5px solid rgba(148, 163, 184, 0.3);
       border-radius: 12px;
       padding: 14px 18px;
-      color: #f1f5f9;
+      color: #ffffff;
       font-size: 15px;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -177,19 +183,21 @@
       background-position: right 12px center;
       background-size: 20px;
       padding-right: 45px;
+      width: 100%;
     }
 
     .select-premium:focus {
       outline: none;
       border-color: #06b6d4;
-      background-color: rgba(30, 41, 59, 0.8);
+      background-color: rgba(30, 41, 59, 0.9);
       box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1), 0 0 20px rgba(6, 182, 212, 0.2);
       transform: translateY(-1px);
+      color: #ffffff;
     }
 
     .select-premium option {
       background: #1e293b;
-      color: #f1f5f9;
+      color: #ffffff;
     }
 
     /* Checkbox premium */
@@ -204,6 +212,8 @@
       transition: all 0.3s ease;
       background: rgba(30, 41, 59, 0.4);
       border: 1.5px solid rgba(148, 163, 184, 0.1);
+      color: #e2e8f0;
+      font-weight: 500;
     }
 
     .checkbox-premium:hover {
@@ -401,7 +411,7 @@
         <h1 class="text-4xl md:text-5xl title-premium">
           Levantamento de Requisitos
         </h1>
-        <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
+        <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto">
           Sistema Interno de Gestão de Condomínio
         </p>
         <div class="h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
@@ -413,17 +423,27 @@
           Estrutura de Equipe e Acessos
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <input type="number" name="zeladoria_qtd" placeholder="Qtd. usuários - Zeladoria" class="input-premium w-full"
-            min="0" />
-          <input type="number" name="administrativo_qtd" placeholder="Qtd. usuários - Administrativo"
-            class="input-premium w-full" min="0" />
-          <input type="number" name="financeiro_qtd" placeholder="Qtd. usuários - Financeiro"
-            class="input-premium w-full" min="0" />
-          <input type="number" name="patrimonial_qtd" placeholder="Qtd. usuários - Patrimonial"
-            class="input-premium w-full" min="0" />
+          <div>
+            <label class="label-premium">Qtd. usuários - Zeladoria</label>
+            <input type="number" name="zeladoria_qtd" class="input-premium" min="0" />
+          </div>
+          <div>
+            <label class="label-premium">Qtd. usuários - Administrativo</label>
+            <input type="number" name="administrativo_qtd" class="input-premium" min="0" />
+          </div>
+          <div>
+            <label class="label-premium">Qtd. usuários - Financeiro</label>
+            <input type="number" name="financeiro_qtd" class="input-premium" min="0" />
+          </div>
+          <div>
+            <label class="label-premium">Qtd. usuários - Patrimonial</label>
+            <input type="number" name="patrimonial_qtd" class="input-premium" min="0" />
+          </div>
         </div>
-        <textarea name="acumulo_funcoes" placeholder="Algum setor acumula funções? Qual?"
-          class="textarea-premium w-full"></textarea>
+        <div>
+          <label class="label-premium">Algum setor acumula funções? Qual?</label>
+          <textarea name="acumulo_funcoes" class="textarea-premium"></textarea>
+        </div>
       </section>
 
       <!-- BLOCO: ZELADORIA -->
@@ -453,12 +473,18 @@
             <span>Gerador</span>
           </label>
         </div>
-        <textarea name="checklists" placeholder="Existem checklists hoje? Se sim, quais?"
-          class="textarea-premium w-full"></textarea>
-        <textarea name="controle_falhas" placeholder="Como é feito o controle de falhas atualmente?"
-          class="textarea-premium w-full"></textarea>
-        <textarea name="aviso_falhas" placeholder="Quando algo não é feito, quem é avisado?"
-          class="textarea-premium w-full"></textarea>
+        <div>
+          <label class="label-premium">Existem checklists hoje? Se sim, quais?</label>
+          <textarea name="checklists" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Como é feito o controle de falhas atualmente?</label>
+          <textarea name="controle_falhas" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Quando algo não é feito, quem é avisado?</label>
+          <textarea name="aviso_falhas" class="textarea-premium"></textarea>
+        </div>
       </section>
 
       <!-- BLOCO: ESTOQUE -->
@@ -466,17 +492,26 @@
         <h2 class="text-2xl md:text-3xl font-bold text-cyan-300 section-title">
           Controle de Estoque e Insumos
         </h2>
-        <textarea name="estoque" placeholder="Existem materiais em estoque? Quais?"
-          class="textarea-premium w-full"></textarea>
-        <textarea name="falta_material" placeholder="Já houve falta de material em emergência?"
-          class="textarea-premium w-full"></textarea>
-        <textarea name="reposicao" placeholder="Quem controla reposição hoje?"
-          class="textarea-premium w-full"></textarea>
-        <select name="alerta_estoque" class="select-premium w-full">
-          <option value="">Deseja alerta automático de estoque mínimo?</option>
-          <option value="Sim">Sim</option>
-          <option value="Não">Não</option>
-        </select>
+        <div>
+          <label class="label-premium">Existem materiais em estoque? Quais?</label>
+          <textarea name="estoque" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Já houve falta de material em emergência?</label>
+          <textarea name="falta_material" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Quem controla reposição hoje?</label>
+          <textarea name="reposicao" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Deseja alerta automático de estoque mínimo?</label>
+          <select name="alerta_estoque" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
       </section>
 
       <!-- BLOCO: PATRIMÔNIO -->
@@ -484,16 +519,22 @@
         <h2 class="text-2xl md:text-3xl font-bold text-cyan-300 section-title">
           Controle Patrimonial
         </h2>
-        <select name="inventario" class="select-premium w-full">
-          <option value="">Existe inventário patrimonial?</option>
-          <option value="Sim">Sim</option>
-          <option value="Não">Não</option>
-        </select>
-        <select name="nota_fiscal" class="select-premium w-full">
-          <option value="">Os bens possuem nota fiscal armazenada?</option>
-          <option value="Sim">Sim</option>
-          <option value="Não">Não</option>
-        </select>
+        <div>
+          <label class="label-premium">Existe inventário patrimonial?</label>
+          <select name="inventario" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Os bens possuem nota fiscal armazenada?</label>
+          <select name="nota_fiscal" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
       </section>
 
       <!-- BLOCO: FINANCEIRO -->
@@ -501,14 +542,19 @@
         <h2 class="text-2xl md:text-3xl font-bold text-cyan-300 section-title">
           Financeiro — Controle e Visão
         </h2>
-        <select name="controle_financeiro" class="select-premium w-full">
-          <option value="">Controle financeiro é feito onde?</option>
-          <option value="Planilha">Planilha</option>
-          <option value="Sistema Externo">Sistema Externo</option>
-          <option value="Papel">Papel</option>
-        </select>
-        <textarea name="problemas_financeiros" placeholder="Principais problemas financeiros hoje"
-          class="textarea-premium w-full"></textarea>
+        <div>
+          <label class="label-premium">Controle financeiro é feito onde?</label>
+          <select name="controle_financeiro" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Planilha">Planilha</option>
+            <option value="Sistema Externo">Sistema Externo</option>
+            <option value="Papel">Papel</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Principais problemas financeiros hoje</label>
+          <textarea name="problemas_financeiros" class="textarea-premium"></textarea>
+        </div>
       </section>
 
       <!-- BLOCO: COMUNICAÇÃO -->
@@ -516,10 +562,14 @@
         <h2 class="text-2xl md:text-3xl font-bold text-cyan-300 section-title">
           Comunicação e Fluxo Interno
         </h2>
-        <textarea name="comunicacao" placeholder="Como os funcionários se comunicam hoje?"
-          class="textarea-premium w-full"></textarea>
-        <textarea name="historico_comunicacao" placeholder="Existe histórico dessas comunicações?"
-          class="textarea-premium w-full"></textarea>
+        <div>
+          <label class="label-premium">Como os funcionários se comunicam hoje?</label>
+          <textarea name="comunicacao" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Existe histórico dessas comunicações?</label>
+          <textarea name="historico_comunicacao" class="textarea-premium"></textarea>
+        </div>
       </section>
 
       <!-- BLOCO: ALERTAS -->
@@ -537,8 +587,10 @@
             <span>Manutenções críticas</span>
           </label>
         </div>
-        <textarea name="alertas_criticos" placeholder="O que NÃO pode passar sem aviso?"
-          class="textarea-premium w-full"></textarea>
+        <div>
+          <label class="label-premium">O que NÃO pode passar sem aviso?</label>
+          <textarea name="alertas_criticos" class="textarea-premium"></textarea>
+        </div>
       </section>
 
       <!-- BLOCO: DOR -->
@@ -546,12 +598,18 @@
         <h2 class="text-2xl md:text-3xl font-bold text-cyan-300 section-title">
           Problemas e Expectativas
         </h2>
-        <textarea name="maior_problema" placeholder="Qual o MAIOR problema hoje no condomínio?"
-          class="textarea-premium w-full"></textarea>
-        <textarea name="retrabalho" placeholder="O que mais gera retrabalho?"
-          class="textarea-premium w-full"></textarea>
-        <textarea name="solucao_ideal" placeholder="Se o sistema resolvesse UMA coisa, qual seria?"
-          class="textarea-premium w-full"></textarea>
+        <div>
+          <label class="label-premium">Qual o MAIOR problema hoje no condomínio?</label>
+          <textarea name="maior_problema" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">O que mais gera retrabalho?</label>
+          <textarea name="retrabalho" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Se o sistema resolvesse UMA coisa, qual seria?</label>
+          <textarea name="solucao_ideal" class="textarea-premium"></textarea>
+        </div>
       </section>
 
       <!-- BOTÃO -->
