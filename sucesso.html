@@ -28,56 +28,11 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 25%, #0f172a 50%, #1e293b 75%, #0a0e27 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
+      background: radial-gradient(circle at top, #0f172a, #020617);
       min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
+      color: #f1f5f9;
     }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Partículas animadas de fundo */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .particle {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: rgba(34, 211, 238, 0.5);
-      border-radius: 50%;
-      animation: float 20s infinite;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      50% {
-        transform: translateY(-100vh) translateX(50px);
-        opacity: 0.8;
-      }
-    }
 
     /* Glassmorphism */
     .glass-strong {
@@ -249,6 +204,13 @@
       background: linear-gradient(180deg, #22d3ee, #06b6d4);
     }
 
+    /* Responsividade */
+    @media (max-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+    }
+
     /* Botão de voltar */
     .btn-back {
       background: rgba(30, 41, 59, 0.6);
@@ -273,10 +235,7 @@
 </head>
 
 <body>
-  <!-- Partículas de fundo -->
-  <div class="particles" id="particles"></div>
-
-  <div class="min-h-screen flex items-center justify-center px-4 py-10 relative z-10">
+  <div class="min-h-screen flex items-center justify-center px-4 py-10">
     
     <!-- LOADING -->
     <div id="loading" class="text-center space-y-8 fade-in">
@@ -325,22 +284,6 @@
   </div>
 
   <script>
-    // Criar partículas animadas
-    function createParticles() {
-      const particlesContainer = document.getElementById('particles');
-      const particleCount = 50;
-      
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 20 + 's';
-        particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-        particlesContainer.appendChild(particle);
-      }
-    }
-
     // Criar confetti quando sucesso aparecer
     function createConfetti() {
       const colors = ['#06b6d4', '#22d3ee', '#67e8f9', '#a5f3fc'];
@@ -381,8 +324,6 @@
       }
     }, 2500);
 
-    // Inicializar partículas
-    createParticles();
   </script>
 </body>
 </html>

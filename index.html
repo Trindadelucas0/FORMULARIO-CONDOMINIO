@@ -30,69 +30,11 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 25%, #0f172a 50%, #1e293b 75%, #0a0e27 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
+      background: radial-gradient(circle at top, #0f172a, #020617);
       min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
+      color: #f1f5f9;
     }
 
-    @keyframes gradientShift {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* Partículas animadas de fundo */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .particle {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: rgba(34, 211, 238, 0.5);
-      border-radius: 50%;
-      animation: float 20s infinite;
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-      }
-
-      10% {
-        opacity: 1;
-      }
-
-      90% {
-        opacity: 1;
-      }
-
-      50% {
-        transform: translateY(-100vh) translateX(50px);
-        opacity: 0.8;
-      }
-    }
 
     /* Glassmorphism */
     .glass {
@@ -310,41 +252,6 @@
       }
     }
 
-    /* Título premium */
-    .title-premium {
-      background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 50%, #67e8f9 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-
-    /* Header com ícone */
-    .header-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(34, 211, 238, 0.2));
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-      border: 1px solid rgba(6, 182, 212, 0.3);
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
-      }
-
-      50% {
-        box-shadow: 0 0 0 10px rgba(6, 182, 212, 0);
-      }
-    }
 
     /* Scrollbar personalizada */
     ::-webkit-scrollbar {
@@ -374,81 +281,80 @@
         /* Evita zoom no iOS */
       }
     }
-
-    /* Efeito de brilho nos títulos de seção */
-    .section-title {
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, #06b6d4, transparent);
-      border-radius: 2px;
-    }
   </style>
 </head>
 
 <body>
-  <!-- Partículas de fundo -->
-  <div class="particles" id="particles"></div>
-
-  <div class="min-h-screen flex items-center justify-center px-4 py-10 relative z-10">
-    <form id="formulario" class="w-full max-w-5xl glass-strong rounded-2xl shadow-2xl p-8 md:p-12 space-y-12">
-      <!-- Header Premium -->
-      <header class="space-y-6 text-center">
-        <div class="header-icon">
-          <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-        </div>
-        <h1 class="text-4xl md:text-5xl title-premium">
-          Levantamento de Requisitos
+  <div class="min-h-screen flex items-center justify-center px-4 py-10">
+    <form id="formulario" method="POST" action="https://api.sheetmonkey.io/form/k3zabAEiocCJregCwETQi"
+      class="w-full max-w-5xl glass-strong rounded-2xl shadow-2xl p-8 md:p-12 space-y-12">
+      <!-- Header -->
+      <header class="space-y-3 text-center">
+        <h1 class="text-3xl font-bold text-cyan-400">
+          Diagnóstico Completo do Condomínio
         </h1>
-        <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto">
+        <p class="text-slate-400 text-sm">
           Sistema Interno de Gestão de Condomínio
         </p>
-        <div class="h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
       </header>
+
+      <!-- BLOCO: IDENTIFICAÇÃO -->
+      <section class="section-premium space-y-6">
+        <h2 class="text-xl font-semibold text-cyan-300">
+          Identificação do Condomínio
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="label-premium">Nome do Condomínio *</label>
+            <input type="text" name="condominio_nome" class="input-premium" required />
+          </div>
+          <div>
+            <label class="label-premium">Quantidade de Unidades</label>
+            <input type="number" name="quantidade_unidades" class="input-premium" min="0" />
+          </div>
+          <div>
+            <label class="label-premium">Nome do Síndico</label>
+            <input type="text" name="sindico_nome" class="input-premium" />
+          </div>
+          <div>
+            <label class="label-premium">E-mail para contato *</label>
+            <input type="email" name="email_contato" class="input-premium" required />
+          </div>
+        </div>
+      </section>
 
       <!-- BLOCO: EQUIPE -->
       <section class="section-premium space-y-6">
-        <h2 class="text-2xl md:text-3xl font-bold text-cyan-300 section-title">
+        <h2 class="text-xl font-semibold text-cyan-300">
           Estrutura de Equipe e Acessos
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
-            <label class="label-premium">Qtd. usuários - Zeladoria</label>
-            <input type="number" name="zeladoria_qtd" class="input-premium" min="0" />
+            <label class="label-premium">Quantas pessoas trabalham na Zeladoria?</label>
+            <input type="number" name="usuarios_zeladoria" class="input-premium" min="0" />
           </div>
           <div>
-            <label class="label-premium">Qtd. usuários - Administrativo</label>
-            <input type="number" name="administrativo_qtd" class="input-premium" min="0" />
+            <label class="label-premium">Quantas pessoas trabalham no Administrativo?</label>
+            <input type="number" name="usuarios_administrativo" class="input-premium" min="0" />
           </div>
           <div>
-            <label class="label-premium">Qtd. usuários - Financeiro</label>
-            <input type="number" name="financeiro_qtd" class="input-premium" min="0" />
+            <label class="label-premium">Quantas pessoas trabalham no Financeiro?</label>
+            <input type="number" name="usuarios_financeiro" class="input-premium" min="0" />
           </div>
           <div>
-            <label class="label-premium">Qtd. usuários - Patrimonial</label>
-            <input type="number" name="patrimonial_qtd" class="input-premium" min="0" />
+            <label class="label-premium">Quantas pessoas cuidam do Patrimônio?</label>
+            <input type="number" name="usuarios_patrimonial" class="input-premium" min="0" />
           </div>
         </div>
         <div>
-          <label class="label-premium">Algum setor acumula funções? Qual?</label>
-          <textarea name="acumulo_funcoes" class="textarea-premium"></textarea>
+          <label class="label-premium">Algum funcionário faz mais de uma função? Descreva:</label>
+          <textarea name="setor_acumulado" class="textarea-premium"></textarea>
         </div>
       </section>
 
       <!-- BLOCO: ZELADORIA -->
       <section class="section-premium space-y-6">
-        <h2 class="text-2xl md:text-3xl font-bold text-cyan-300 section-title">
+        <h2 class="text-xl font-semibold text-cyan-300">
           Rotina da Zeladoria (Manutenção)
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -474,49 +380,74 @@
           </label>
         </div>
         <div>
-          <label class="label-premium">Existem checklists hoje? Se sim, quais?</label>
-          <textarea name="checklists" class="textarea-premium"></textarea>
+          <label class="label-premium">A zeladoria usa alguma lista de tarefas diárias?</label>
+          <select name="checklist_existente" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
         </div>
         <div>
-          <label class="label-premium">Como é feito o controle de falhas atualmente?</label>
+          <label class="label-premium">Se sim, quais são essas listas?</label>
+          <textarea name="checklist_quais" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Como vocês registram quando algo quebra ou dá problema?</label>
           <textarea name="controle_falhas" class="textarea-premium"></textarea>
         </div>
         <div>
-          <label class="label-premium">Quando algo não é feito, quem é avisado?</label>
-          <textarea name="aviso_falhas" class="textarea-premium"></textarea>
+          <label class="label-premium">Quem recebe aviso quando uma tarefa não é cumprida?</label>
+          <textarea name="aviso_falha" class="textarea-premium"></textarea>
         </div>
       </section>
 
       <!-- BLOCO: ESTOQUE -->
       <section class="section-premium space-y-6">
-        <h2 class="text-2xl md:text-3xl font-bold text-cyan-300 section-title">
+        <h2 class="text-xl font-semibold text-cyan-300">
           Controle de Estoque e Insumos
         </h2>
         <div>
-          <label class="label-premium">Existem materiais em estoque? Quais?</label>
+          <label class="label-premium">Existem materiais de manutenção em estoque?</label>
+          <select name="estoque_existe" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Quais materiais o condomínio mantém em estoque? (Ex: lâmpadas, produtos de
+            limpeza, ferramentas)</label>
           <textarea name="estoque" class="textarea-premium"></textarea>
         </div>
         <div>
           <label class="label-premium">Já houve falta de material em emergência?</label>
-          <textarea name="falta_material" class="textarea-premium"></textarea>
+          <select name="falta_material" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
         </div>
         <div>
-          <label class="label-premium">Quem controla reposição hoje?</label>
-          <textarea name="reposicao" class="textarea-premium"></textarea>
+          <label class="label-premium">Conte o que aconteceu quando faltou material:</label>
+          <textarea name="falta_material_detalhes" class="textarea-premium"></textarea>
         </div>
         <div>
-          <label class="label-premium">Deseja alerta automático de estoque mínimo?</label>
+          <label class="label-premium">Quem controla a reposição de materiais hoje?</label>
+          <input type="text" name="controle_reposicao" class="input-premium" />
+        </div>
+        <div>
+          <label class="label-premium">Deseja alertas automáticos de estoque mínimo?</label>
           <select name="alerta_estoque" class="select-premium">
             <option value="">Selecione uma opção</option>
             <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
+            <option value="Nao">Não</option>
           </select>
         </div>
       </section>
 
       <!-- BLOCO: PATRIMÔNIO -->
       <section class="section-premium space-y-6">
-        <h2 class="text-2xl md:text-3xl font-bold text-cyan-300 section-title">
+        <h2 class="text-xl font-semibold text-cyan-300">
           Controle Patrimonial
         </h2>
         <div>
@@ -524,7 +455,7 @@
           <select name="inventario" class="select-premium">
             <option value="">Selecione uma opção</option>
             <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
+            <option value="Nao">Não</option>
           </select>
         </div>
         <div>
@@ -532,71 +463,362 @@
           <select name="nota_fiscal" class="select-premium">
             <option value="">Selecione uma opção</option>
             <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
+            <option value="Nao">Não</option>
           </select>
         </div>
       </section>
 
       <!-- BLOCO: FINANCEIRO -->
       <section class="section-premium space-y-6">
-        <h2 class="text-2xl md:text-3xl font-bold text-cyan-300 section-title">
+        <h2 class="text-xl font-semibold text-cyan-300">
           Financeiro — Controle e Visão
         </h2>
         <div>
-          <label class="label-premium">Controle financeiro é feito onde?</label>
+          <label class="label-premium">O controle financeiro é feito onde?</label>
           <select name="controle_financeiro" class="select-premium">
             <option value="">Selecione uma opção</option>
             <option value="Planilha">Planilha</option>
-            <option value="Sistema Externo">Sistema Externo</option>
+            <option value="Sistema">Sistema</option>
             <option value="Papel">Papel</option>
           </select>
         </div>
         <div>
-          <label class="label-premium">Principais problemas financeiros hoje</label>
+          <label class="label-premium">Existe fluxo de caixa mensal?</label>
+          <select name="fluxo_caixa" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Existe previsão orçamentária anual?</label>
+          <select name="previsao_orcamentaria" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Quais são as maiores dificuldades na área financeira? (Ex: atrasos, falta de
+            controle, etc.)</label>
           <textarea name="problemas_financeiros" class="textarea-premium"></textarea>
         </div>
       </section>
 
       <!-- BLOCO: COMUNICAÇÃO -->
       <section class="section-premium space-y-6">
-        <h2 class="text-2xl md:text-3xl font-bold text-cyan-300 section-title">
+        <h2 class="text-xl font-semibold text-cyan-300">
           Comunicação e Fluxo Interno
         </h2>
         <div>
           <label class="label-premium">Como os funcionários se comunicam hoje?</label>
-          <textarea name="comunicacao" class="textarea-premium"></textarea>
+          <textarea name="comunicacao_atual" class="textarea-premium"></textarea>
         </div>
         <div>
           <label class="label-premium">Existe histórico dessas comunicações?</label>
-          <textarea name="historico_comunicacao" class="textarea-premium"></textarea>
+          <select name="historico_comunicacao" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
         </div>
       </section>
 
       <!-- BLOCO: ALERTAS -->
       <section class="section-premium space-y-6">
-        <h2 class="text-2xl md:text-3xl font-bold text-cyan-300 section-title">
+        <h2 class="text-xl font-semibold text-cyan-300">
           Alertas, Aprovações e Automatizações
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <label class="checkbox-premium">
-            <input type="checkbox" name="aprovacoes[]" value="Compras">
-            <span>Aprovação de compras</span>
-          </label>
-          <label class="checkbox-premium">
-            <input type="checkbox" name="aprovacoes[]" value="Manutencoes">
-            <span>Manutenções críticas</span>
-          </label>
+        <div>
+          <label class="label-premium">O síndico deve aprovar compras?</label>
+          <select name="aprova_compras" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">O síndico deve aprovar manutenções críticas?</label>
+          <select name="aprova_manutencao" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Deseja receber alertas por:</label>
+          <textarea name="tipo_alerta" class="textarea-premium" placeholder="E-mail, Sistema, Ambos"></textarea>
         </div>
         <div>
           <label class="label-premium">O que NÃO pode passar sem aviso?</label>
-          <textarea name="alertas_criticos" class="textarea-premium"></textarea>
+          <textarea name="alerta_critico" class="textarea-premium"></textarea>
         </div>
       </section>
 
-      <!-- BLOCO: DOR -->
+      <!-- BLOCO: DOCUMENTOS E ARQUIVOS -->
       <section class="section-premium space-y-6">
-        <h2 class="text-2xl md:text-3xl font-bold text-cyan-300 section-title">
-          Problemas e Expectativas
+        <h2 class="text-xl font-semibold text-cyan-300">
+          Documentos e Arquivos
+        </h2>
+        <div>
+          <label class="label-premium">Onde ficam guardados os documentos do condomínio?</label>
+          <textarea name="local_documentos" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Existe controle de versão de documentos?</label>
+          <select name="controle_versao_documentos" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Quais documentos são mais consultados?</label>
+          <textarea name="documentos_mais_consultados" class="textarea-premium"></textarea>
+        </div>
+      </section>
+
+      <!-- BLOCO: OCORRÊNCIAS E CHAMADOS -->
+      <section class="section-premium space-y-6">
+        <h2 class="text-xl font-semibold text-cyan-300">
+          Ocorrências e Chamados
+        </h2>
+        <div>
+          <label class="label-premium">Como são registradas as ocorrências do dia a dia?</label>
+          <textarea name="registro_ocorrencias" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Quem recebe os chamados dos moradores?</label>
+          <textarea name="quem_recebe_chamados" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Existe prazo para resolver chamados?</label>
+          <select name="prazo_chamados" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Qual o prazo estabelecido?</label>
+          <input type="text" name="prazo_chamados_detalhes" class="input-premium"
+            placeholder="Ex: 24 horas, 48 horas" />
+        </div>
+        <div>
+          <label class="label-premium">Como vocês acompanham o status de cada chamado?</label>
+          <textarea name="acompanhamento_chamados" class="textarea-premium"></textarea>
+        </div>
+      </section>
+
+      <!-- BLOCO: FORNECEDORES E PRESTADORES -->
+      <section class="section-premium space-y-6">
+        <h2 class="text-xl font-semibold text-cyan-300">
+          Fornecedores e Prestadores
+        </h2>
+        <div>
+          <label class="label-premium">Quantos fornecedores fixos o condomínio trabalha?</label>
+          <input type="number" name="quantidade_fornecedores" class="input-premium" min="0" />
+        </div>
+        <div>
+          <label class="label-premium">Como é feito o cadastro de novos prestadores?</label>
+          <textarea name="cadastro_prestadores" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Existe controle de avaliação de fornecedores?</label>
+          <select name="avaliacao_fornecedores" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Como são armazenados os contratos de prestadores?</label>
+          <textarea name="armazenamento_contratos" class="textarea-premium"></textarea>
+        </div>
+      </section>
+
+      <!-- BLOCO: RELATÓRIOS E ANÁLISES -->
+      <section class="section-premium space-y-6">
+        <h2 class="text-xl font-semibold text-cyan-300">
+          Relatórios e Análises
+        </h2>
+        <div>
+          <label class="label-premium">Quais relatórios são gerados mensalmente?</label>
+          <textarea name="relatorios_mensais" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Quem precisa visualizar esses relatórios?</label>
+          <textarea name="quem_visualiza_relatorios" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Existe necessidade de gráficos e dashboards?</label>
+          <select name="necessidade_dashboards" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Precisam exportar dados para Excel/PDF?</label>
+          <select name="exportar_dados" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- BLOCO: VISITANTES E VEÍCULOS -->
+      <section class="section-premium space-y-6">
+        <h2 class="text-xl font-semibold text-cyan-300">
+          Visitantes e Veículos
+        </h2>
+        <div>
+          <label class="label-premium">Como é feito o controle de visitantes?</label>
+          <textarea name="controle_visitantes" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Quantos veículos em média entram por dia?</label>
+          <input type="number" name="veiculos_por_dia" class="input-premium" min="0" />
+        </div>
+        <div>
+          <label class="label-premium">Existe controle de vagas de garagem?</label>
+          <select name="controle_vagas" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Como é gerenciado o cadastro de veículos dos moradores?</label>
+          <textarea name="cadastro_veiculos" class="textarea-premium"></textarea>
+        </div>
+      </section>
+
+      <!-- BLOCO: ÁREAS COMUNS E AGENDAMENTOS -->
+      <section class="section-premium space-y-6">
+        <h2 class="text-xl font-semibold text-cyan-300">
+          Áreas Comuns e Agendamentos
+        </h2>
+        <div>
+          <label class="label-premium">Quais áreas comuns podem ser agendadas? (salão, quadra, piscina)</label>
+          <textarea name="areas_agendaveis" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Como é feito o agendamento hoje?</label>
+          <textarea name="processo_agendamento" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Existe cobrança pelo uso de áreas comuns?</label>
+          <select name="cobranca_areas_comuns" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Quantos agendamentos por mês em média?</label>
+          <input type="number" name="agendamentos_mes" class="input-premium" min="0" />
+        </div>
+      </section>
+
+      <!-- BLOCO: NOTIFICAÇÕES E COMUNICAÇÃO -->
+      <section class="section-premium space-y-6">
+        <h2 class="text-xl font-semibold text-cyan-300">
+          Notificações e Comunicação
+        </h2>
+        <div>
+          <label class="label-premium">Como os moradores são avisados sobre comunicados?</label>
+          <textarea name="aviso_comunicados" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Precisam de notificações push no celular?</label>
+          <select name="notificacoes_push" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Quantos comunicados são enviados por mês?</label>
+          <input type="number" name="comunicados_mes" class="input-premium" min="0" />
+        </div>
+        <div>
+          <label class="label-premium">Existe aplicativo para moradores?</label>
+          <select name="app_moradores" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- BLOCO: PREFERÊNCIAS DO SISTEMA -->
+      <section class="section-premium space-y-6">
+        <h2 class="text-xl font-semibold text-cyan-300">
+          Preferências do Sistema
+        </h2>
+        <div>
+          <label class="label-premium">Quantos usuários simultâneos precisam acessar?</label>
+          <input type="number" name="usuarios_simultaneos" class="input-premium" min="1" />
+        </div>
+        <div>
+          <label class="label-premium">Precisam de backup automático dos dados?</label>
+          <select name="backup_automatico" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Preferem sistema na nuvem ou local?</label>
+          <select name="tipo_sistema" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Nuvem">Nuvem</option>
+            <option value="Local">Local</option>
+            <option value="Ambos">Ambos</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Qual o orçamento estimado para o sistema?</label>
+          <select name="orcamento_sistema" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Ate 5 mil">Até R$ 5.000</option>
+            <option value="5 a 10 mil">R$ 5.000 a R$ 10.000</option>
+            <option value="10 a 20 mil">R$ 10.000 a R$ 20.000</option>
+            <option value="20 a 50 mil">R$ 20.000 a R$ 50.000</option>
+            <option value="Acima 50 mil">Acima de R$ 50.000</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- BLOCO: MULTAS E INFRAÇÕES -->
+      <section class="section-premium space-y-6">
+        <h2 class="text-xl font-semibold text-cyan-300">
+          Multas e Infrações
+        </h2>
+        <div>
+          <label class="label-premium">Como são registradas multas e infrações?</label>
+          <textarea name="registro_multas" class="textarea-premium"></textarea>
+        </div>
+        <div>
+          <label class="label-premium">Existe processo de notificação de moradores?</label>
+          <select name="notificacao_moradores" class="select-premium">
+            <option value="">Selecione uma opção</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="label-premium">Como é feito o controle de pagamento de multas?</label>
+          <textarea name="controle_pagamento_multas" class="textarea-premium"></textarea>
+        </div>
+      </section>
+
+      <!-- BLOCO: DIAGNÓSTICO FINAL -->
+      <section class="section-premium space-y-6">
+        <h2 class="text-xl font-semibold text-cyan-300">
+          Diagnóstico Final
         </h2>
         <div>
           <label class="label-premium">Qual o MAIOR problema hoje no condomínio?</label>
@@ -608,34 +830,79 @@
         </div>
         <div>
           <label class="label-premium">Se o sistema resolvesse UMA coisa, qual seria?</label>
-          <textarea name="solucao_ideal" class="textarea-premium"></textarea>
+          <textarea name="prioridade_sistema" class="textarea-premium"></textarea>
         </div>
       </section>
 
       <!-- BOTÃO -->
       <div class="pt-6">
         <button type="submit" class="btn-premium w-full">
-          <span class="relative z-10">Enviar Informações</span>
+          <span class="relative z-10">Enviar Diagnóstico</span>
         </button>
       </div>
     </form>
   </div>
 
   <script>
-    // Criar partículas animadas
-    function createParticles() {
-      const particlesContainer = document.getElementById('particles');
-      const particleCount = 50;
-
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 20 + 's';
-        particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-        particlesContainer.appendChild(particle);
+    // Função para obter o label de um campo
+    function getFieldLabel(field) {
+      // Para checkboxes dentro de checkbox-premium
+      if (field.type === 'checkbox') {
+        const checkboxContainer = field.closest('.checkbox-premium');
+        if (checkboxContainer) {
+          const span = checkboxContainer.querySelector('span');
+          if (span) {
+            return span.textContent.trim();
+          }
+        }
       }
+
+      // Procura pelo label-premium no mesmo container (div pai)
+      const container = field.closest('div');
+      if (container) {
+        // Procura o label-premium que está antes do campo
+        const label = container.querySelector('.label-premium');
+        if (label) {
+          return label.textContent.trim();
+        }
+
+        // Se não encontrou, procura em labels normais
+        const normalLabel = container.querySelector('label');
+        if (normalLabel && normalLabel !== field) {
+          return normalLabel.textContent.trim();
+        }
+      }
+
+      // Tenta encontrar o label associado via for
+      if (field.id) {
+        const label = document.querySelector(`label[for="${field.id}"]`);
+        if (label) {
+          return label.textContent.trim();
+        }
+      }
+
+      // Se o campo está dentro de um label
+      const parentLabel = field.closest('label');
+      if (parentLabel && parentLabel !== field) {
+        return parentLabel.textContent.trim();
+      }
+
+      // Fallback: usa o name do campo
+      return field.name || 'Campo sem nome';
+    }
+
+    // Função para obter o valor formatado do campo
+    function getFieldValue(field) {
+      if (field.type === 'checkbox') {
+        return field.checked ? field.value : '';
+      }
+      if (field.type === 'radio') {
+        return field.checked ? field.value : '';
+      }
+      if (field.tagName === 'SELECT') {
+        return field.value || '';
+      }
+      return field.value || '';
     }
 
     // Validação e envio do formulário
@@ -643,12 +910,20 @@
       e.preventDefault();
 
       // Validação básica
-      const requiredFields = document.querySelectorAll('input[type="number"], textarea, select');
+      const requiredFields = this.querySelectorAll('[required]');
       let isValid = true;
 
       // Remover classes de erro anteriores
       requiredFields.forEach(field => {
         field.classList.remove('border-red-500');
+      });
+
+      // Validar campos obrigatórios
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          field.classList.add('border-red-500');
+          isValid = false;
+        }
       });
 
       // Validar campos numéricos (devem ser >= 0 se preenchidos)
@@ -659,30 +934,145 @@
         }
       });
 
-      if (isValid) {
-        // Salvar dados no localStorage (opcional, para persistência)
-        const formData = new FormData(this);
-        const data = {};
-        for (let [key, value] of formData.entries()) {
-          if (data[key]) {
-            // Se já existe, transformar em array
-            if (Array.isArray(data[key])) {
-              data[key].push(value);
-            } else {
-              data[key] = [data[key], value];
-            }
-          } else {
-            data[key] = value;
+      // Validar email
+      const emailField = this.querySelector('[type="email"]');
+      if (emailField && emailField.value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailField.value)) {
+          emailField.classList.add('border-red-500');
+          isValid = false;
+        }
+      }
+
+      if (!isValid) {
+        alert('Por favor, preencha todos os campos obrigatórios corretamente.');
+        return false;
+      }
+
+      // Coletar todos os campos do formulário
+      const allFields = this.querySelectorAll('input, textarea, select');
+      const questionsAndAnswers = [];
+      const processedFields = new Set();
+      let questionNumber = 1;
+
+      allFields.forEach(field => {
+        // Pular campos hidden e botões
+        if (field.type === 'hidden' || field.type === 'submit' || field.type === 'button') {
+          return;
+        }
+
+        // Pular se já processado (para evitar duplicatas)
+        if (processedFields.has(field)) {
+          return;
+        }
+
+        const label = getFieldLabel(field);
+        const value = getFieldValue(field);
+
+        // Para checkboxes, só adicionar se estiver marcado
+        if (field.type === 'checkbox') {
+          if (field.checked) {
+            questionsAndAnswers.push({
+              number: questionNumber++,
+              question: label,
+              answer: value
+            });
+          }
+          processedFields.add(field);
+          return;
+        }
+
+        // Para radio buttons, só processar uma vez por grupo
+        if (field.type === 'radio') {
+          if (processedFields.has(field.name)) {
+            return;
+          }
+          if (field.checked) {
+            questionsAndAnswers.push({
+              number: questionNumber++,
+              question: label,
+              answer: value
+            });
+            processedFields.add(field.name);
+          }
+          return;
+        }
+
+        // Para outros campos, adicionar se tiver valor ou for obrigatório
+        if (value || field.hasAttribute('required')) {
+          questionsAndAnswers.push({
+            number: questionNumber++,
+            question: label,
+            answer: value || '(Não preenchido)'
+          });
+          processedFields.add(field);
+        }
+      });
+
+      // Criar FormData com perguntas e respostas numeradas
+      const formData = new FormData();
+
+      // Adicionar dados originais
+      allFields.forEach(field => {
+        if (field.type === 'hidden' || field.type === 'submit' || field.type === 'button') {
+          return;
+        }
+
+        if (field.type === 'checkbox') {
+          if (field.checked) {
+            formData.append(field.name, field.value);
+          }
+        } else if (field.type === 'radio') {
+          if (field.checked) {
+            formData.append(field.name, field.value);
+          }
+        } else {
+          if (field.value) {
+            formData.append(field.name, field.value);
           }
         }
-        localStorage.setItem('formData', JSON.stringify(data));
+      });
 
-        // Redirecionar para página de sucesso
-        window.location.href = 'sucesso.html';
-      } else {
-        // Mostrar mensagem de erro
-        alert('Por favor, preencha todos os campos corretamente.');
-      }
+      // Adicionar perguntas e respostas numeradas formatadas
+      let qaText = '═══════════════════════════════════════════════════════\n';
+      qaText += 'PERGUNTAS E RESPOSTAS NUMERADAS\n';
+      qaText += '═══════════════════════════════════════════════════════\n\n';
+
+      questionsAndAnswers.forEach(item => {
+        qaText += `[${item.number}] PERGUNTA:\n${item.question}\n\n`;
+        qaText += `RESPOSTA:\n${item.answer}\n\n`;
+        qaText += '───────────────────────────────────────────────────────\n\n';
+      });
+
+      qaText += `Total de perguntas respondidas: ${questionsAndAnswers.length}\n`;
+
+      formData.append('perguntas_respostas_numeradas', qaText);
+      formData.append('total_perguntas', questionsAndAnswers.length.toString());
+
+      // Também adicionar um resumo em formato mais simples
+      let qaSimple = '';
+      questionsAndAnswers.forEach(item => {
+        qaSimple += `${item.number}. ${item.question} → ${item.answer}\n`;
+      });
+      formData.append('resumo_qa', qaSimple);
+
+      // Enviar para SheetMonkey
+      fetch('https://api.sheetmonkey.io/form/k3zabAEiocCJregCwETQi', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => {
+          if (response.ok) {
+            // Redirecionar para página de sucesso
+            window.location.href = 'sucesso.html';
+          } else {
+            throw new Error('Erro ao enviar formulário');
+          }
+        })
+        .catch(error => {
+          console.error('Erro:', error);
+          alert('Erro ao enviar formulário. Por favor, tente novamente.');
+        });
     });
 
     // Animações de entrada
@@ -707,8 +1097,6 @@
       observer.observe(section);
     });
 
-    // Inicializar partículas
-    createParticles();
   </script>
 </body>
 
