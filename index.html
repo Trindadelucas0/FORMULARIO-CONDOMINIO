@@ -1009,30 +1009,6 @@
         }
       });
 
-      // Criar FormData com perguntas e respostas numeradas
-      const formData = new FormData();
-
-      // Adicionar dados originais
-      allFields.forEach(field => {
-        if (field.type === 'hidden' || field.type === 'submit' || field.type === 'button') {
-          return;
-        }
-
-        if (field.type === 'checkbox') {
-          if (field.checked) {
-            formData.append(field.name, field.value);
-          }
-        } else if (field.type === 'radio') {
-          if (field.checked) {
-            formData.append(field.name, field.value);
-          }
-        } else {
-          if (field.value) {
-            formData.append(field.name, field.value);
-          }
-        }
-      });
-
       // Criar formato único e limpo de perguntas e respostas numeradas
       let qaText = '';
       qaText += '═══════════════════════════════════════════════════════════════════\n';
@@ -1054,7 +1030,10 @@
       qaText += `TOTAL DE PERGUNTAS RESPONDIDAS: ${questionsAndAnswers.length}\n`;
       qaText += '═══════════════════════════════════════════════════════════════════\n';
 
-      // Enviar apenas o formato único e melhorado
+      // Criar FormData APENAS com o formato numerado (SEM duplicar dados individuais)
+      const formData = new FormData();
+
+      // Enviar APENAS o formato numerado UMA VEZ
       formData.append('perguntas_respostas_numeradas', qaText);
       formData.append('total_perguntas', questionsAndAnswers.length.toString());
 
