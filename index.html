@@ -1033,28 +1033,30 @@
         }
       });
 
-      // Adicionar perguntas e respostas numeradas formatadas
-      let qaText = '═══════════════════════════════════════════════════════\n';
-      qaText += 'PERGUNTAS E RESPOSTAS NUMERADAS\n';
-      qaText += '═══════════════════════════════════════════════════════\n\n';
+      // Criar formato único e limpo de perguntas e respostas numeradas
+      let qaText = '';
+      qaText += '═══════════════════════════════════════════════════════════════════\n';
+      qaText += '                    DIAGNÓSTICO DO CONDOMÍNIO\n';
+      qaText += '              PERGUNTAS E RESPOSTAS NUMERADAS\n';
+      qaText += '═══════════════════════════════════════════════════════════════════\n\n';
 
       questionsAndAnswers.forEach(item => {
-        qaText += `[${item.number}] PERGUNTA:\n${item.question}\n\n`;
-        qaText += `RESPOSTA:\n${item.answer}\n\n`;
-        qaText += '───────────────────────────────────────────────────────\n\n';
+        const num = item.number.toString().padStart(3, '0');
+        qaText += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+        qaText += `PERGUNTA ${num}:\n`;
+        qaText += `${item.question}\n\n`;
+        qaText += `RESPOSTA ${num}:\n`;
+        qaText += `${item.answer}\n`;
+        qaText += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
       });
 
-      qaText += `Total de perguntas respondidas: ${questionsAndAnswers.length}\n`;
+      qaText += '═══════════════════════════════════════════════════════════════════\n';
+      qaText += `TOTAL DE PERGUNTAS RESPONDIDAS: ${questionsAndAnswers.length}\n`;
+      qaText += '═══════════════════════════════════════════════════════════════════\n';
 
+      // Enviar apenas o formato único e melhorado
       formData.append('perguntas_respostas_numeradas', qaText);
       formData.append('total_perguntas', questionsAndAnswers.length.toString());
-
-      // Também adicionar um resumo em formato mais simples
-      let qaSimple = '';
-      questionsAndAnswers.forEach(item => {
-        qaSimple += `${item.number}. ${item.question} → ${item.answer}\n`;
-      });
-      formData.append('resumo_qa', qaSimple);
 
       // Enviar para SheetMonkey
       fetch('https://api.sheetmonkey.io/form/k3zabAEiocCJregCwETQi', {
